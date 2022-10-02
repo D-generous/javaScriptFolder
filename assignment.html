@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/d1b9b10061.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- <div style="text-align: center;" >
+        <h1>Jamb Score Checker</h1>
+        <input type="text" id="inp">
+        <button onclick="check()">Check</button>
+        <p id="disp" style="font-size: 3em;"></p>
+
+    </div>
+    <script>
+        function check(){
+            var score = inp.value
+            if (score>=200){
+                disp.innerText = "PASSED" 
+                disp.style.color = "green"
+            }
+            else {
+                disp.innerText = "You have failed to meet cutoff"
+                disp.style.color = "red"
+            }
+        } 
+    </script> -->
+
+
+
+    <!-- <div style="text-align: center;">
+        <h2>Odd/Even NUmbers</h2>
+        <input type="text" id="inp">
+        <button onclick="check()">check</button>
+        <p id="disp"></p>
+    </div>
+    <script>
+        function check(){
+            var n = inp.value
+            if (n%2==0) {
+                disp.innerText = "Even Number" 
+                alert('Even number')
+            }
+            else {
+                disp.innerText = "Odd Number"
+                alert('Odd number')
+            }
+        }
+
+    </script> -->
+
+
+
+
+
+    <!-- <div style="text-align: center;">
+        <h2>prime checker</h2>
+        <input type="text" id="inp">
+        <button onclick="check()">check</button>
+    </div>
+    <script>
+        function check() {
+            var isPrimeNumber = document.getElementById('inp').value
+            var not =
+            if (isPrimeNumber%isPrimeNumber ==0 ){
+                alert('prime')
+            }
+        }
+    </script> -->
+
+    <!-- <div>
+        <input type="text" id="inp">
+        <button onclick="check()">check</button>
+    </div>
+    <script>
+        function check(){
+            var divisible = document.getElementById('inp').value
+            if (divisible%2 == 0 && divisible%3 == 0 && divisible%5 ==0){
+                alert('Number is divisible')
+            } else{
+                alert('Number is not divisible')
+            }
+        }
+    </script> -->
+
+    <div align="center" style="height: 250px; width: 500px; background-color: antiquewhite; margin-left: 400px; border-radius: 20px; border-top: 30px solid #555555; margin-top: 100px;">
+        <h1>GRADING SYSTEM</h1>
+        <input type="text" id="inp" placeholder="Enter your Score">
+        <button style="border-radius: 5px;" onclick="grade()">Check</button>
+        <p style="font-family: dm serif display,serif;">Result</p>
+        <div id="disp" style="width: 200px; height: 40px; background-color: white; font-size: 30px; border-radius: 10px;"></div>
+    </div>
+    <script>
+        function grade(){
+            var score = document.getElementById("inp").value
+            var mySong = new Audio("lose.mp3")
+            var mySong2 = new Audio("try.mp3")
+            var mySong3= new Audio("champ.mp3")
+            var mySong4 = new Audio("invalid.mp3")
+            if (score<=30 && score>0){
+                disp.innerText = "F-Failed"
+                disp.style.color = "red"
+                mySong.play()
+            } 
+            else if (score<=40 && score>0){
+                disp.innerText = "D-Fair"
+                disp.style.color = "red"
+                mySong.play()
+            }
+            else if (score<=50 && score>0){
+                disp.innerText = "C-Good"
+                disp.style.color = "yellow"
+                mySong2.play()
+            }
+            else if (score<=70 && score>0){
+                disp.innerText = "B-Very Good"
+                disp.style.color = "green"
+                mySong2.play()
+            }
+            else if (score<=100 && score>0){
+                disp.innerHTML = "A-Excellent"
+                disp.style.color = "Green"
+                mySong3.play()
+            }
+            else {
+                disp.innerText = "Invalid Score"
+                disp.style.color = "gold"
+                mySong4.play()  
+            }
+        }
+    </script>
+
+
+
+</body>
+</html>

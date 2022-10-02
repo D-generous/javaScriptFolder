@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="column" id="inp">
+    <input type="text" placeholder="row" id="inp2">
+    <select name="" id="selector">
+        <option value="">select variables</option>
+        <option value="" id="multiple">MULTIPLY</option>
+        <option value="" id="adding">ADDITION</option>
+        <option value="" id="subtract">SUBTRACTION</option>
+        <option value="" id="divide">DIVISION</option>
+    </select>
+    <button onclick="myFunc()">Make me a Table</button>
+    <div id="disp"></div>
+    <!-- <table id="disp" border="1">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table> -->
+
+    <script>
+        function myFunc(){
+            var myInput = Number(inp.value)
+            var myInput2 = Number(inp2.value)
+            var mySelector = document.getElementById("selector").value
+            var myMultiple = document.getElementById("multiple").value
+            var myAdding = document.getElementById("adding").value
+            var mySubtract = document.getElementById("subtract").value
+            var myDivide = document.getElementById("divide").value
+            var myShow = document.getElementById("disp")
+            myShow.innerHTML = ""
+
+            
+            for(var i=1; i<=myInput; i++){
+                console.log("table" + i)
+                // disp.innerHTML +="<br>" + "table" + i
+                // disp.innerHTML += "<tr><td>" + "<br>" + "table" + i + "</td></tr>"
+                // disp.innerHTML +=
+                // `
+                //     <table id="disp" border="1">
+                //         <tr>
+                //             <td>hello</td>
+                //             <td>hello</td>
+                //             <td>hello</td>
+                //         </tr>
+                //     </table>
+
+                // `
+                for(var j=1; j<=myInput2; j++){
+                    // var myAns = i*myInput
+                    // console.log(j*myAns)
+                    if(myInput==myInput2){
+                        console.log(i + "*" + j + "=" +j*i)
+                    }
+                    disp.innerHTML += "<tr><td>" + "<br>" + i + "*" + j + "=" +j*i + "</td></tr>"
+                    // disp.innerHTML = 
+                    // `
+                    //     <table border="1">
+                    //         <tr>
+                    //             <td>NAME</td>
+                    //         </tr>
+                    //     </table>
+                    // `
+                }
+            }
+            
+        }
+            // disp.innerHTML = 
+            // `
+            //     <table border="1">
+            //         <tr>
+            //             <td>NAME</td>
+            //             <td>NAME</td>
+            //         </tr>
+            //     </table>
+            // `
+        
+    </script>
+</body>
+</html>

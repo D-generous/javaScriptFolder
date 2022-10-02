@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="inp" placeholder="Enter the Number">
+        <select name="" id="sel">
+            <!-- <option value="">select symbol</option> -->
+            <option value="mutiply" id="multiple">*</option>
+            <option value="substract" id="subt">-</option>
+            <option value="add" id="myPlus">+</option>
+            <option value="division" id="divide">/</option>
+        </select>
+        <button onclick="mult()">Check</button><br>
+        <table style="border: 2px solid black;" id="disp" border=""></table>
+    </div>
+
+    <script>
+        function mult(){
+            var myNumber = Number(inp.value)         
+            var sell = document.getElementById("sel").value
+            var m = document.getElementById("multiple").value
+            var a = document.getElementById("myPlus").value
+            var s = document.getElementById("subt").value
+            var d = document.getElementById("divide").value
+            var myTable = document.getElementById("disp")
+            myTable.innerHTML = ""
+            for (i=1; i<=12; i++){
+                if(sell==m){
+                    var c = myNumber*i
+                    console.log(+ myNumber + "*" + i + "=" +c)
+                    disp.innerHTML += "<tr><td>" + "<br>"+ myNumber + "*" + i + "=" +c + "</td></tr>"
+
+                }else if(sell==s){
+                    var c = myNumber-i
+                    console.log(myNumber + "-" + i + "=" +c)
+                    disp.innerHTML +=  "<tr><td>" + "<br>"+ myNumber + "-" + i + "=" +c + "</td></tr>"
+
+                }else if(sell==a){
+                    var c = myNumber+i
+                    console.log(myNumber + "-" + i + "=" +c)
+                    disp.innerHTML +=  "<tr><td>" + "<br>"+ myNumber + "+" + i + "=" +c + "</td></tr>"
+
+                }else if(sell==d){
+                    var c = myNumber/i
+                    console.log(myNumber + "-" + i + "=" +c)
+                    disp.innerHTML +=  "<tr><td>" + "<br>"+ myNumber + "/" + i + "=" +c + "</td></tr>"
+
+                }
+                
+                
+            }
+        }
+
+    </script>
+    
+    <!-- <script>
+        function mult(){
+            var myNumber =document.getElementById("inp").value
+            for (i=1; i<=12; i++){
+                // console.log(myNumber*i)
+                disp.innerHTML +="<br>"+ myNumber + "*" + i + "=" + myNumber*i 
+            }
+        }
+    </script> -->
+</body>
+</html>

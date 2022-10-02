@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(139, 101, 19);">
+    <div style="display: flex; gap: 10px; padding: 0 130px;">
+        <h4>Columns</h4>
+        <input type="text" id="inp" style="border-radius: 30px; border: 1px solid; padding-left: 15px;">
+        <h4>Rows</h4>
+        <input type="text" id="inp2" style="border-radius: 30px; border: 1px solid; padding-left: 15px;">
+        <h4>Evaluation</h4>
+        <select name="" id="selector" style="border-radius: 30px; border: 1px solid; padding-left: 15px;">
+            <option value="">select symbols</option>
+            <option value="Multiplication" id="multiple">MULTIPLY</option>
+            <option value="Addition" id="adding">ADDITION</option>
+            <option value="Subtraction" id="subtract">SUBTRACTION</option>
+            <option value="division" id="divide">DIVISION</option>
+        </select>
+        <button onclick="myFunc()" style="border-radius: 30px; border: 1px solid; padding-left: 15px;">Make me a Table</button>
+        
+    </div>
+
+    
+    <!-- <button onclick="Todo()">Todo</button> -->
+    <div id="disp"></div>
+    <script>
+        function myFunc(){
+            var myInput = Number(inp.value)
+            var myInput2 = Number(inp2.value)
+            var mySelector = document.getElementById("selector").value
+            var myMultiple = document.getElementById("multiple").value
+            var myAdding = document.getElementById("adding").value
+            var mySubtract = document.getElementById("subtract").value
+            var myDivide = document.getElementById("divide").value
+            var myShow = document.getElementById("disp")
+            myShow.innerHTML = ""
+
+            for (i=1; i<=myInput; i++){
+                console.log("Table" + " " + i)
+                disp.innerHTML += "<br>" + "Table" + " " + i
+                
+                for (j=1; j<=myInput2; j++){
+                    if(mySelector==myMultiple){
+                        console.log(i + "*" + j + "=" + i*j)  
+                        disp.innerHTML += "<br>" + i + "*" + j + "=" + i*j
+                    }else if (mySelector==myAdding){
+                        console.log(i + "*" + j + "=" + (i+j))
+                        disp.innerHTML += "<br>" + i + "+" + j + "=" + (i+j)
+                    }else if (mySelector==mySubtract){
+                        console.log(i + "-" + j + "=" + (i-j))
+                        disp.innerHTML += "<br>" + i + "-" + j + "=" + (i-j)
+                    }else if (mySelector==myDivide){
+                        console.log(i + "/" + j + "=" + parseFloat(i/j).toFixed(2))
+                        disp.innerHTML += "<br>" + i + "/" + j + "=" + parseFloat(i/j).toFixed(2)
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
