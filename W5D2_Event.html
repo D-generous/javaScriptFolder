@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="myFunc(event)" id="btn">Click Me</button>
+    <input type="text" oninput="myFunc(event)">
+    <script>
+        const myFunc=(e)=>{
+            // for input
+            // console.log(e.target.value)
+
+
+            // for button
+            console.log(e.target)
+            
+            e.target.innerText= "Do not click me"
+            document.getElementById("btn").innerText = "Do not Click me"
+        }
+    </script>
+    
+</body>
+</html>

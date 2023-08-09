@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="getPreviousDetails()">
+    <input type="text" placeholder="First Name" id="fname">
+    <input type="text" placeholder="Last Name" id="lname">
+    <input type="text" placeholder="Email" id="em">
+    <input type="text" placeholder="Password" id="pass">
+    <button onclick="signup()">Sign Up</button>
+    <script>
+        localStorage.setItem("firstname","kunle")
+        // to remove everything inside a local storage
+        // localStorage.clear()
+
+        // to remove a particular key
+        // localStorage.removeItem("firstname")
+
+        console.log(localStorage.getItem("firstname"))
+
+        // let allStudents = [
+        //     {firstname:"kunle", lastname:"sola"},
+        //     {firstname:"victor", lastname:"ade"},
+        //     {firstname:"kolade", lastname:"john"},
+        // ]
+        // let stringStudent = JSON.stringify(allStudents)
+        // localStorage.setItem("localallStudents",stringStudent)
+        // console.log(allStudents);
+
+        // localStorage.clear()
+
+
+
+        // But when are having the input from users 
+
+        let allStudent = []
+        const getPreviousDetails =()=>{
+            if (localStorage.localAllStudents) {
+                allStudent = JSON.parse(localStorage.getItem("localAllStudents"))
+                console.log(allStudent)
+                
+            }
+        }
+        const signup =()=>{
+            // alert("hello")
+            let newStudents = {
+                FirstName : fname.value,
+                LastName : lname.value,
+                Email : em.value,
+                Password : pass.value
+            }
+            allStudent.push(newStudents)
+            let stringStudent = JSON.stringify(allStudent)
+            localStorage.setItem("localAllStudents",stringStudent)
+            console.log(allStudent)
+        }
+    </script>
+</body>
+</html>

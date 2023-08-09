@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: #F0F2F5;
+    }
+    section{
+        background-color: #FFFFFF;
+        text-align: center;
+        width: 350px;
+        border-radius: 20px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    div{
+        display: grid;
+        gap: 20px;
+        padding-left: 10px;
+    }
+    .grid{
+        width: 300px;
+        height: 50px;
+        padding-left: 10px;
+        font-size: 1.1em;
+    }
+    #btn{
+        background-color: #166FE5;
+        border-radius: 10px;
+        border: #166FE5;
+        color: white;
+        font-size: 1.5em;
+        width: 315px;
+    }
+    button{
+        background-color: #36A420;
+        border: #36A420;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    #link{
+        text-decoration: none;
+        padding: 10px;
+        color: white;
+        font-size: 1.3em;
+    }
+</style>
+<body>
+    <section>
+        <h2>Log in to your account</h2>
+        <div>
+            <input type="text" placeholder="Email address" id="em" class="grid">
+            <input type="password" placeholder="Password" id="pass" class="grid">
+            <button onclick="login()" class="grid" id="btn">Log In</button>
+        </div>
+        <hr>
+        <div id="disp"></div>
+        <button><a href="local_assignment.html" id="link">Create New Account</a></button>
+    </section>
+    <script>
+        var allStudents = localStorage.getItem("localStringStudent")
+        var convertedStudents = JSON.parse(allStudents)
+        console.log(convertedStudents)
+        // let found = false
+        const login=()=>{
+            var userEmail = em.value
+            var userPassword = pass.value
+            let found = convertedStudents.find((students,index)=>students.Email==userEmail&&students.Password==userPassword)
+            console.log(found)
+            if(found){
+                console.log("user found")
+                
+            }
+            else{
+                console.log("user not found")
+            }
+        }
+    </script>
+</body>
+</html>

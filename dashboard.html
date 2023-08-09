@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div id="disp">Hello</div> -->
+    <table border="1">
+        <thead>
+            <tr>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Date of Birth</td>
+                <td>Gender</td>
+                <td>Email</td>
+                <td>Password</td>
+            </tr>
+        </thead>
+        <tbody id="disp"></tbody>
+    </table>
+
+    <script>
+        var allStudents = localStorage.getItem("localStringStudent")
+        let convertedAllStudents = JSON.parse(allStudents)
+        console.log(convertedAllStudents)
+        for (let index = 0; index < convertedAllStudents.length; index++) {
+            
+            disp.innerHTML += `
+            <tr>
+                <td>${convertedAllStudents[index].Firstname}</td>
+                <td>${convertedAllStudents[index].Lastname}</td>
+                <td>${convertedAllStudents[index].DOB}</td>
+                <td>${convertedAllStudents[index].Gender}</td>
+                <td>${convertedAllStudents[index].Email}</td>
+                <td>${convertedAllStudents[index].Password}</td>
+            </tr>
+            `
+        }
+
+        // var allStudents = localStorage.getItem("localStringStudent")
+        // let convertedAllStudents = JSON.parse(allStudents)
+        // console.log(convertedAllStudents)
+
+    </script>
+</body>
+</html>

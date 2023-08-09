@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Place" id="place">
+    <button onclick="checkMe()">Check</button>
+    <div id="disp3" style="font-size: 3em;"></div>
+    <div id="disp2">hi</div>
+    <div id="disp" style="font: 1em sans-serif;">hello</div>
+    <script>
+        let userPlace = document.getElementById("place") 
+        let endpoint = "https://api.openweathermap.org/data/2.5/weather?q=ogbomoso&appid=a2ef408b7ffa3e6ddae7454da5345409&units=metric"
+        console.log(endpoint);
+        const checkMe= async()=>{
+            let response = await fetch(endpoint)
+            let convertedResponse = await response.json()
+            console.log(convertedResponse.name)
+            disp3.innerHTML = `${convertedResponse.main.temp}C`
+            disp.innerHTML = `${convertedResponse.name}`
+            disp2.innerHTML = `${convertedResponse.weather[0].main}`
+        }
+    </script>
+    
+</body>
+</html>

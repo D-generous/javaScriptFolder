@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous Programming</title>
+</head>
+<body>
+    <div id="disp"></div>
+    <button onclick="clickMe()">Click Me</button>
+    <button onclick="getLocation()">Get Location</button>
+    
+    <script>
+        let endpoint = "https://jsonplaceholder.typicode.com/users"
+        let endpoint2 = "https://api.github.com/users"
+        const getLocation=()=>{
+            navigator.geolocation.getCurrentPosition((position)=>{
+                console.log(position);
+            })
+        }
+        const clickMe= async ()=>{
+            let response = await fetch(endpoint)
+            let convertedResponse = await response.json()
+            for (let index = 0; index < convertedResponse.length; index++) {
+                disp.innerHTML += `
+                <h1>${convertedResponse[index].login}</h1>
+                <img src="${convertedResponse[index].avatar_url}">
+                `
+                console.log(index)
+                
+            }
+            
+            console.log(convertedResponse[0].name)
+        }
+    </script>
+</body>
+</html>

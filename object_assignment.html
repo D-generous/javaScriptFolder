@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="allStudent">
+    <input type="text" placeholder="First Name" id="firstname">
+    <input type="text" placeholder="Last Name" id="lastname">
+    <input type="email" placeholder="Email" id="email">
+    <input type="password" placeholder="Input Password" id="password">
+    <!-- <input type="number" placeholder="Matric No"> -->
+    <button onclick="myFunc()">Sign Up</button>
+    <hr>
+    <table border="1" style="width: 90vw ;">
+        <thead>
+            <tr>
+                <td>S/N</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Email Address</td>
+                <td>Password</td>
+                <td>Matric no</td>
+                <td>Registration_date</td>
+                <td style="display: flex; gap: 10px;">Action</td>
+            </tr>
+        </thead>
+        <tbody id="disp"></tbody>
+    </table>
+    <script>
+        allStudent = []
+        function myFunc(){
+            // alert("hello")
+            FirstName = firstname.value,
+            LastName = lastname.value,
+            Email = email.value,
+            Password = password.value
+
+            if(FirstName==""||LastName==""||Email==""||Password==""){
+                alert("Your input is Empty, enter a value")
+            }
+            else{
+                var studentInfo = {
+                    FirstName : firstname.value,
+                    LastName : lastname.value,
+                    Email : email.value,
+                    Password : password.value,
+                    MatricNo : "SQI" + Math.round(Math.random()*1000000),
+                    MyDate : new Date()
+                }
+                allStudent.push(studentInfo)
+                displayTodo()
+                
+            }
+        }
+
+        function displayTodo(){
+            disp.innerHTML =""
+            firstname.value =""
+            lastname.value =""
+            email.value =""
+            password.value =""
+            // var myDate = new Date()
+            // console.log(myDate)
+            for (let index = 0; index < allStudent.length; index++) {
+                console.log(allStudent)
+                disp.innerHTML += `
+                <tr>
+                    <td>${[index]}</td>
+                    <td>${allStudent[index].FirstName}</td>
+                    <td>${allStudent[index].LastName}</td>
+                    <td>${allStudent[index].Email}</td>
+                    <td>${allStudent[index].Password}</td>
+                    <td>${allStudent[index].MatricNo}</td>
+                    <td>${allStudent[index].MyDate}</td>
+                    <td style="display:flex; gap:10px;"><button onclick="editItem(${[index]})" style="height:50px;">Edit</button><button onclick="deleteItem(${[index]})" style="height:50px;">Delete</button></td>  
+                </tr>
+
+                `   
+            }
+        }
+
+        function editItem(i){
+            var userEdit = prompt("What do you want to edit")
+            allStudent.splice(i,1,userEdit)
+            displayTodo()
+            console.log(displayTodo())
+        }
+
+        function deleteItem(j){
+            allStudent.splice(j,1)
+            displayTodo()
+        }
+    </script>
+    
+</body>
+</html>

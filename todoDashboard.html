@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="disp1"></div>
+    <input type=" text" placeholder="Enter your Todo" id="inp">
+    <button onclick="addTodo()">Add Todo</button>
+    <button onclick="deleteAllTodo()">Delete all Todo</button>
+    <table border="1" style="width: 50vw;" >
+    <thead>
+        <tr>
+            <td>S/N</td>
+            <td>Todo List</td>
+            <td>Delete</td>
+            <td>Edit</td>
+        </tr>
+    </thead>
+    <tbody id="disp"></tbody>
+    </table>
+    <script>
+        let allTodo = JSON.parse(localStorage.getItem("localTodo")) 
+        let userIndex = JSON.parse(localStorage.getItem("userIndex"))
+        console.log(userIndex)
+        disp1.innerHTML = `Welcome <span style="font-weight:900; font-size:1.5em">${allTodo[userIndex].firstname}<span>!
+        `
+        disp1.innerHTML += `<p style=" font-size:1.5em">Enter your todo here</p>`
+        
+
+        var allToDo = []
+        var toDoOfUser = ""
+        // var toDoOfUser = inp.value  
+        function addTodo() {
+    toDoOfUser = inp.value
+    inp.value = ""
+
+    if (toDoOfUser=="") {
+        alert('empty todo list')
+        disp.innerHTML="" 
+    }
+
+    else{
+        allToDo.push(toDoOfUser)
+        console.log(allToDo)
+        
+        // disp.innerHTML = ""
+        // for (let index = 0; index < allToDo.length; index++) {
+        //     disp.innerHTML += `
+        //     <tr> 
+        //     <td>${index}</td>
+        //     <td><h1>${allToDo[index]}</h1></td>
+        //     <td><button onclick="deleteItem(${index})">Delete</button></td>
+        //     <td><button>Edit</button></td>
+        //     </tr>
+        //     `
+        // }
+
+        displayTodo()
+
+    }
+}
+        function displayTodo(){
+            disp.innerHTML = ""
+            for (let index = 0; index < allToDo.length; index++) {
+        disp.innerHTML += `
+        <tr> 
+        <td>${index}</td>
+        <td><h1>${allToDo[index]}</h1></td>
+        <td><button onclick="deleteItem(${index})">Delete</button></td>
+        <td><button onclick="editItem(${index})">Edit</button></td>
+        </tr>
+        `
+    }
+        }
+        function deleteItem(i){
+    // alert(i)
+    allToDo.splice(i,1)
+    console.log(allToDo)
+    displayTodo()
+}
+        function editItem(j){
+    // console.log(j)
+    var myEdit = prompt("Edit your Todo")
+    // allToDo.splice(j,1,myEdit) 
+    // or
+    allToDo[j] = myEdit
+    console.log(allToDo)
+    displayTodo()
+}
+            
+            function deleteAllTodo() {
+    allToDo.splice(0, allToDo.length)
+    disp.innerHTML = allToDo
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="First Name" id="firstname">
+    <input type="text" placeholder="Last Name" id="lastname">
+    <input type="text" placeholder="Email" id="email">
+    <input type="password" placeholder="Password" id="password">
+    <button onclick="myFunc()">Sign Up</button>
+    <hr>
+    <h1>All students</h1>
+    <div id="disp"></div>
+    <script>
+        var allStudent = []
+        function myFunc(){
+            var studentInfo = {
+                firstName : firstname.value,
+                lastName : lastname.value,
+                myEmail : email.value,
+                myPassword : password.value
+            }
+            allStudent.push(studentInfo)
+            firstname.value =""
+            lastname.value =""
+            email.value =""
+            password.value =""
+            disp.innerHTML =""
+            for (let index = 0; index < allStudent.length; index++) {
+                console.log(allStudent[index].firstname)
+                disp.innerHTML += `
+                ${allStudent[index].firstName}
+                ${allStudent[index].lastName}
+                ${allStudent[index].myEmail}
+                ${allStudent[index].myPassword}
+
+
+                `
+                
+            }
+        }
+        
+    </script>
+</body>
+</html>

@@ -7,7 +7,7 @@ function mySlice(){
 }
 function mySplice(){
     // myArray.splice(3, 0, "kk", "rr", "bb");
-    myArray.splice(2, 2,)
+    // myArray.splice(2, 2,)
     console.log(myArray)
 }
 function mySort(){

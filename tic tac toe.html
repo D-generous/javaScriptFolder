@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="myFunc(event)" id="xword">1</button>
+    <button onclick="myFunc(event)" id="oword">2</button>
+    <button onclick="myFunc(event)">3</button>
+    <button onclick="myFunc(event)">4</button>
+    <button onclick="myFunc(event)">5</button>
+    <button onclick="myFunc(event)">6</button>
+    <button onclick="myFunc(event)">7</button>
+    <button onclick="myFunc(event)">8</button>
+    <button onclick="myFunc(event)">9</button>
+
+    <script>
+        const myFunc=(e)=>{
+            console.log(e)
+            var x = xword.value
+            var o = xword.value
+            // e.target.innerText = "X"
+            // document.getElementById("xword").innerText = "X"
+            // document.getElementById("oword").innerText = "O"
+            for (let index = 0; index <= 8; index++) {
+                if (index==0||index==2||index==4||index==6||index==8) {
+                    console.log("x")
+                    
+                }
+                else{
+                    console.log("y")
+                }
+                
+            }
+        }
+
+    </script>
+</body>
+</html>
